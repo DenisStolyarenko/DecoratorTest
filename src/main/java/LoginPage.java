@@ -1,20 +1,27 @@
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@name='username']")
-    private Decorator userNameInput;
+    private WebElement userNameInput;
 
     @FindBy(xpath = "//input[@name='password']")
-    private Decorator passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(xpath = "//input[@name='Login']")
-    private Decorator loginButton;
+    private WebElement loginButton;
 
     @FindBy(xpath = "//td[@class='header1']/h1")
-    private Decorator loginPageText;
+    private WebElement loginPageText;
 
+    public LoginPage() {
+        this.userNameInput = new Decorator(userNameInput);
+        this.passwordInput = new Decorator(passwordInput);
+        this.loginButton = new Decorator(loginButton);
+        this.loginPageText = new Decorator(loginPageText);
+    }
 
     public DashBoardPage login(String userName, String pwdName){
         userNameInput.sendKeys(userName);

@@ -5,9 +5,9 @@ import java.util.List;
 public class Decorator implements WebElement {
     protected WebElement element;
 
-//    public Decorator(WebElement element) {
-//        this.element = element;
-//    }
+    public Decorator(WebElement element) {
+        this.element = element;
+    }
 
     @Override
     public void click() {
@@ -22,6 +22,7 @@ public class Decorator implements WebElement {
 
     @Override
     public void sendKeys(CharSequence... keysToSend) {
+        Service.HighlightOfElement(element);
         element.sendKeys(keysToSend);
     }
 
