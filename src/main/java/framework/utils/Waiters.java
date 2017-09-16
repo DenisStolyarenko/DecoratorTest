@@ -1,7 +1,8 @@
+package framework.utils;
+
+import framework.driver.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,11 +28,4 @@ public class Waiters {
                         ExpectedConditions.elementToBeClickable(locator)));
     }
 
-    protected static void waitForFillingField(final By locator, final String expectedResult) {
-        new WebDriverWait(Driver.getDriverInstance(), WAIT_FOR_ELEMENT_TIMEOUT_SECONDS).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return (!d.findElement(locator).getText().toLowerCase().equals(expectedResult));
-            }
-        });
-    }
 }

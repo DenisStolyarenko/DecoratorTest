@@ -1,6 +1,9 @@
+package test;
+
+import framework.page.LoginPage;
 import org.testng.annotations.Test;
 
-public class CheckingDecoratorTest {
+public class CheckingCustomDecoratorTest {
     private LoginPage loginPage = new LoginPage();
 
     @Test(description = "Log in")
